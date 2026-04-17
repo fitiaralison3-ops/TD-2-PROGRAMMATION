@@ -1,0 +1,102 @@
+/* ALGORITHME
+  VARIABLES
+    a[100], b[50]:tableau entier
+    n, m, i, j, x, y, z : entier
+  DEBUT
+    // Entrer la taille des 2 tableaux
+    AFFICHER "Entrez la taille du tableau a"
+    AFFICHER "n="
+    LIRE (n)   
+    AFFICHER "Entrez la taille du tableau b"
+    AFFICHER "m="
+    LIRE (m)
+    SI (n>50 ou n<=0 ou m>50 ou m<=0)
+        AFFICHER "Saisissez des entiers positSIs compris entre 0 et 51. Relancez le programme"
+    SINON
+        //Saisir les composants du tableau a
+        AFFICHER "Entrez les composants du tableau a"
+        x=1
+        POUR (i=0;i<n;i++)
+            AFFICHER "Dans la case n°"
+            AFFICHER (x)
+	    AFFICHER " on ajoute "
+            LIRE (a[i])
+            x++
+	FIN POUR
+        //Saisir les composanrs du tableau b
+        AFFICHER "Entrez les composants du tableau b"
+        y=1
+        POUR (j=0;j<m;j++)
+            AFFICHER "Dans la case n°"
+       	    AFFICHER (y)
+	    AFFICHER " on ajoute "
+            LIRE (b[j])
+            y++
+	FIN POUR
+        // Mettre les valeurs dans b dans a
+        z=m+n
+        j=0
+        POUR (i=n;i<z;i++)
+            a[i]=b[j]
+            j++
+	FIN POUR
+        // Affichage du tableau final
+        AFFICHER "Voici le tableau final"
+	AFFICHER "| "
+        POUR (i=0;i<z;i++)
+            AFFICHER " |"
+	    AFFICHER (a[i])
+	FIN POUR
+   FIN SINON
+  FIN
+#include <stdio.h>
+int main ()
+  {
+    int a[100], b[50];
+    int n, m, i, j, x, y, z;
+    // Entrer la taille des 2 tableaux
+    printf ("Entrez la taille du tableau a \nn=");
+    scanf ("%d", &n);   
+    printf ("Entrez la taille du tableau b \nm=");
+    scanf ("%d", &m);
+    if (n>50 || n<=0 || m>50 ||m<=0)
+      {
+        printf ("Saisissez des entiers positifs compris entre 0 et 51. Relancez le programme");
+      }
+    else
+      {
+        //Saisir les composants du tableau a
+        printf ("Entrez les composants du tableau a\n");
+        x=1;
+        for (i=0; i<n; i++)
+          {
+            printf ("Dans la case n° %d, on ajoute ",x);
+            scanf ("%d",&a[i]);
+            x++;
+          }
+        //Saisir les composanrs du tableau b
+        printf ("\nEntrez les composants du tableau b\n");
+        y=1;
+        for (j=0; j<m; j++)
+          {
+            printf ("Dans la case n° %d, on ajoute ",y);
+            scanf ("%d",&b[j]);
+            y++;
+          }      
+        // Mettre les valeurs dans b dans a
+        z=m+n;
+        j=0;
+        for (i=n; i<z;i++)
+          {
+            a[i]=b[j];
+            j++;
+          }
+        // Affichage du tableau final
+        printf ("\nVoici le tableau final\n| ");
+        for (i=0; i<z ; i++)
+          {
+            printf ("%d |",a[i]);
+          }
+      }
+  return (0);
+}
