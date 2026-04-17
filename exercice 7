@@ -1,0 +1,84 @@
+/* ALGORITHME
+  VARIABLES
+    a[4], b[4]: tableau reel
+    produit: tableau reel
+    n,i,x: entier
+  DEBUT
+    //taille des vecteurs
+    AFFICHER "Entrer la taille des 2 vecteurs"
+    AFFICHER "n="
+    LIRE(n)
+    SI (n>4 ou n<=0)
+        AFFICHER "Veuillez entrer un nombre positif et inferieur à 4"
+    FIN SI
+    SINON 
+        x=1
+        // Entrer les composants du  vecteur a
+        AFFICHER "Entrez les composants de a"
+        POUR (i=0;i<n;i++)
+            AFFICHER "Le composant n°"
+	    AFFICHER (x)
+            AFFICHER "du vecteur a est "
+            LIRE (a[i])
+            x++
+	FIN POUR
+        // Entrer les composants du  vecteur b
+        AFFICHER "Entrez les composants de b"
+        POUR (i=0 i<n i++)
+            AFFICHER "Le composant n°"
+	    AFFICHER (x)
+            AFFICHER "du vecteur b est "
+            LIRE (b[i])
+            x++
+	FIN POUR
+        // Calcul du produit scalaire
+        produit=0
+        POUR (i=0i<ni++)
+            produit= produit+(a[i]*b[i])
+	FIN POUR
+        AFFICHER "Le produit scalaire des 2 vecteurs est "
+	AFFICHER (produit)
+    FIN SINON
+   FIN*/
+#include <stdio.h>
+int main()
+  {
+    float a[4], b[4];
+    float produit;
+    int n,i,x;
+    //taille des vecteurs
+    printf ("Entrer la taille des 2 vecteurs\nn=");
+    scanf ("%d",&n);
+    if (n>4 || n<=0)
+      {
+        printf ("Veuillez entrer un nombre positif et inferieur à 4");
+      }
+    else 
+      {
+        x=1;
+        // Entrer les composants du  vecteur a
+        printf ("Entrez les composants de a\n");
+        for (i=0; i<n; i++)
+          {
+            printf ("Le composant n° %d du vecteur a est ",x);
+            scanf ("%f",&a[i]);
+            x++;
+          }
+        // Entrer les composants du  vecteur b
+        printf ("Entrez les composants de b\n");
+        for (i=0; i<n; i++)
+          {
+            printf ("Le composant n° %d du vecteur b est ",x);
+            scanf ("%f",&b[i]);
+            x++;
+          }
+        // Calcul du produit scalaire
+        produit=0;
+        for (i=0;i<n;i++)
+          {
+            produit= produit+(a[i]*b[i]);
+          }
+        printf ("Le produit scalaire des 2 vecteurs est %f",produit);
+      }
+  return (0);
+}
