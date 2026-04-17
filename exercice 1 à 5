@@ -1,0 +1,210 @@
+/* ALGORITHME
+  VARIABLES
+    t[50], tpos[50], tneg[50] : tableau entier
+    n, somme, max, pos_max, i, j, x, y, z, g, d, v : entier
+  DEBUT
+    //exercice 1
+    AFFICHER "Entrez la taille du tableau"
+    AFFICHER (n=)
+    LIRE (n)
+    SI (n>50 ou n<=0)
+        AFFICHER "Saisissez un ombre compris entre 0 et 51 pour la taille. Veuillez relancer le programme"
+    FIN SI
+    SINON
+        //Remplissage du tableau
+        AFFICHER ("Remplissez le tableau"
+        x=1
+        POUR (i=0;i<n;i++)
+            AFFICHER "Dans la case n°"
+            AFFICHER (x)
+            AFFICHER " on ajoute "
+            LIRE (t[i])
+            x++
+        FIN POUR
+        // Afficher le tableau
+        AFFICHER  "Voici votre tableau\n|"
+        POUR (i=0;i<n;i++)
+            AFFICHER (t[i])
+        FIN POUR
+        //Calcul de la somme
+        somme=0
+        POUR  (i=0;i<n;i++)
+            somme=somme+t[i]
+        FIN POUR
+        AFFICHER  "La somme des éléments du tableau est"
+        AFFICHER  (somme)
+        //Exercice 2: Valeur maximale et position
+        max=t[0]
+        pos_max=1
+        POUR  (i=0;i<n;i++)
+            SI (max<t[i])
+                max=t[i]
+                pos_max=i+1
+            FIN SI
+        FIN POUR
+        AFFICHER "La valeur maximale du tableau est " 
+        AFFICHER (max)
+        AFFICHER " qui se trouve dans la case "
+        AFFICHER (pos_max)
+        //Exercice 3: Effacer 0 et entasser les éléments restants
+        j=0
+       POUR  (i=0;i<n;i++)
+          SI (t[i]!=0)
+              t[j]=t[i]
+              j++
+          FIN SI
+      FIN POUR
+      AFFICHER  "Après avoir effacer tous les 0, voici le tableau"
+      AFFICHER "| "
+      POUR  (i=0;i<j;i++)
+          AFFICHER (t[i])
+      FIN POUR
+      //Exercice 4: TPOS et TNEG
+      y=0
+      z=0
+      POUR (i=0;i<j;i++)
+          SI (t[i] >0)
+              tpos[y]=t[i]
+              y++
+          FIN SI
+      FIN POUR
+          SINON
+              tneg[z]=t[i]
+              z++
+          FIN SINON
+      AFFICHER "Voici le tableau des composants positifs "
+      AFFICHER "| "
+      POUR (i=0;i<y;i++)
+          AFFICHER (tpos[i])
+      FIN POUR
+      AFFICHER "Voici le tableau des composants négatifs "
+      AFFICHER "| "
+      POUR (i=0;i<z;i++)
+          AFFICHER (tneg[i])
+      FIN POUR
+      //Exercice 5: Tableau inversé
+      g=0
+      d=j-1
+      TANT QUE (g<d)
+          v=t[g]
+          t[g]=t[d]
+          t[d]=v
+          g++
+          d--
+      FIN TANT QUE
+      AFFICHER "Voici le tableau selon l'ordre inverse"
+      POUR (i=0;i<j;i++) 
+          AFFICHER "|"
+          AFFICHER (t[i])
+      FIN POUR
+  FIN SINON
+FIN */
+
+#include <stdio.h>
+int main()
+  {
+    int t[50], tpos[50], tneg[50];
+    int n, somme, max, pos_max, i, j, x, y, z, g, d, v;
+    //exercice 1
+    printf ("Entrez la taille du tableau\nn=");
+    scanf ("%d",&n);
+    if (n>50 || n<=0)
+      {
+        printf ("Saisissez un ombre compris entre 0 et 51 pour la taille. Veuillez relancer le programme");
+      }
+    else
+      {
+        //Remplissage du tableau
+        printf ("Remplissez le tableau\n");
+        x=1;
+        for (i=0;i<n;i++)
+          {
+            printf ("Dans la case n° %d, on ajoute ",x);
+            scanf ("%d",& t[i]);
+            x++;
+          }
+        // Afficher le tablea
+        printf ("Voici votre tableau\n|");
+        for (i=0;i<n;i++)
+          {
+            printf ("%d |",t[i]);
+          }
+        //Calcul de la somme
+        somme=0;
+        for  (i=0;i<n;i++)
+          {
+            somme=somme+t[i];
+          }
+        printf ("\n\nLa somme des éléments du tableau est %d\n",somme);
+        //Exercice 2: Valeur maximale et position
+        max=t[0];
+        pos_max=1;
+        for  (i=0;i<n;i++)
+          {
+            if (max<t[i])
+              {
+                max=t[i];
+                pos_max=i+1;
+              }
+          }
+        printf ("\nLa valeur maximale du tableau est %d , qui se trouve dans la case %d\n",max,pos_max);
+        //Exercice 3: Effacer 0 et entasser les éléments restants
+        j=0;
+       for  (i=0;i<n;i++)
+        {
+          if (t[i]!=0)
+            {
+              t[j]=t[i];
+              j++;
+            }
+        }
+      printf ("\nAprès avoir effacer tous les 0, voici le tableau\n| ");
+      for  (i=0;i<j;i++)
+        {
+          printf ("%d |",t[i]);
+        }
+      //Exercice 4: TPOS et TNEG
+      y=0;
+      z=0;
+      for (i=0;i<j;i++)
+        {
+          if (t[i] >0)
+            {
+              tpos[y]=t[i];
+              y++;
+            }
+          else
+            {
+              tneg[z]=t[i];
+              z++;
+            }
+        }
+      printf ("\n\nVoici le tableau des composants positifs\n| ");
+      for (i=0;i<y;i++)
+        {
+          printf ("%d |",tpos[i]);
+        }
+      printf ("\n\nVoici le tableau des composants négatifs\n| ");
+      for (i=0;i<z;i++)
+        {
+          printf ("%d |",tneg[i]);
+        }
+      //Exercice 5: Tableau inversé
+      g=0;
+      d=j-1;
+      while (g<d)
+        {
+          v=t[g];
+          t[g]=t[d];
+          t[d]=v;
+          g++;
+          d--;
+        }
+      printf ("\n\nVoici le tableau selon l'ordre inverse\n| ");
+      for (i=0;i<j;i++) 
+        {
+          printf ("%d |", t[i]);
+        }
+    }
+  return (0);
+}
