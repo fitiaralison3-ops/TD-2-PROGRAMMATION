@@ -48,7 +48,7 @@
 	    AFFICHER (a[i])
 	FIN POUR
    FIN SINON
-  FIN
+  FIN */
 #include <stdio.h>
 int main ()
   {
